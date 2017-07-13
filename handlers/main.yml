@@ -1,0 +1,5 @@
+---
+# handlers file for .
+# Restart service and ensure it is enabled
+- name: restart elastic_e2e
+  service: name=elastic_e2e state=restarted enabled=yes

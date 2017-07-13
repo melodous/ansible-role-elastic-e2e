@@ -1,0 +1,12 @@
+---
+- name: reload facts
+  setup: filter='*'
+
+- name: Create zabbix agent dir for scripts
+  file: path=/etc/zabbix/script/elastic_e2e state=directory mode=755 owner=root group=root
+
+- name: Copy redis scripts for monitoring
+  copy: src=elastic_e2e_zabbix dest=/etc/zabbix/script/elastic_e2e/elastic_e2e_zabbix mode=755 owner=root group=root
+
+- name: Add crontab to elastic_e2e monitoring
+  cron: name="ElasticHead Zabbix sender" minute=*/5 cron_file=zabbix user=zabbix job="/etc/zabbix/script/elastic_e2e/elastic_e2e_zabbix --zabbix {{ zabbix_server }}"

@@ -1,0 +1,18 @@
+max_process: "{{ elastic_e2e_max_process }}"
+zabbix_server: "{{ elastic_e2e_zabbix_server }}"
+zabbix_user: "{{ elastic_e2e_zabbix_user }}"
+zabbix_pass: "{{ elastic_e2e_zabbix_pass }}"
+zabbix_host: "{{ elastic_e2e_zabbix_host }}"
+zabbix_key: "{{ elastic_e2e_zabbix_key }}"
+redis_hosts:
+{% for item in elastic_e2e_redis_hosts %}
+  - {{ item }}
+{% endfor %}
+redis_port: "{{ elastic_e2e_redis_port }}"
+redis_queue: "{{ elastic_e2e_redis_queue }}"
+message_type: "{{ elastic_e2e_message_type }}"
+es_servers:
+{% for item in elastic_e2e_es_servers %}
+  - {{ item }}
+{% endfor %}
+es_index: {{ elastic_e2e_es_index }}

@@ -1,0 +1,13 @@
+[Unit]
+Description=ElasticHead container
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+RestartSec=1s
+ExecStart=/usr/bin/docker start -a elastic_e2e
+ExecStop=/usr/bin/docker stop -t 2 elastic_e2e
+
+[Install]
+WantedBy=multi-user.target
