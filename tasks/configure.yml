@@ -16,7 +16,9 @@
   until: result_docker|success
   retries: 3
   delay: 1
-  tags: update
+  tags:
+    - update
+    - skip_ansible_lint
 
 - name: Start elastic_e2e containers
   docker_container:
