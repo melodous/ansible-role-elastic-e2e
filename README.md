@@ -153,6 +153,12 @@ changelog.
 
 -   First change
 
+### elastic-e2e v0.0.2 - 2017/07/17
+
+##### Added
+
+-   Fixed playbook.yml
+
 ### elastic-e2e v0.0.1 - 2017/07/13
 
 ##### Added
